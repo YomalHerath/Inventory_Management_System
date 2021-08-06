@@ -1,0 +1,13 @@
+body {
+    background-image: url('../../images/background_image.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+#invoice {
+    background-image: url('../../images/supplier_heading.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
