@@ -22,7 +22,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link text-light" href="../views/index.php"><b class="text-uppercase">Dashboard</b></a>
+                <a class="nav-link text-light" href="../../../index.php"><b class="text-uppercase">Dashboard</b></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link text-light" href="../views/supplier_details.php"><b class="text-uppercase">Suppliers</b></a>
