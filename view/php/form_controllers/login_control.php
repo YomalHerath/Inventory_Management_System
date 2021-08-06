@@ -35,7 +35,7 @@ if (isset($_POST['submit'])) {
             $_SESSION['password'] = $password;
             $_SESSION['id'] = $id;
 
-            header("location: ../views/index.php ");
+            header("location: ../../../index.php ");
             exit();
         } else {
 
