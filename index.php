@@ -43,7 +43,10 @@
     </div>
 </nav>
 
-<body>
+<body style=" background-image: url('images/background_image.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;">
 
     <div class="main-panel">
         <div class="content-wrapper">
