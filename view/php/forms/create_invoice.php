@@ -1,3 +1,11 @@
+<?php
+
+session_start();
+
+if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
+
+?>
+
 <?php include('../views/header.php'); ?>
 
 <body>
@@ -117,3 +125,12 @@
 
 </body>
 <?php include('../views/footer.php'); ?>
+<?php
+
+} else {
+
+    header("location: ../forms/login.php");
+    exit();
+}
+
+?>
