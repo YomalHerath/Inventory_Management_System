@@ -183,7 +183,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
 
 } else {
 
-    header("location: ../forms/login.php");
+    header("location: view/php/forms/login.php");
     exit();
 }
 
