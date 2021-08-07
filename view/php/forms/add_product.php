@@ -11,7 +11,7 @@
                         <div class="card mb-3">
                             <div class="card-header">
                                 <h2 class="card-title d-flex justify-content-center text-uppercase"><b>Add New Product</b></h2>
-                                <div class="card-body">
+                                <div class="card-body" style="background-color:#e0b0ff;">
                                 </div>
                                 <form class="m-1" action="" method="POST" enctype="multipart/form-data">
                                     <div class="form-group p-2">
