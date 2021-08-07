@@ -1,3 +1,10 @@
+<?php
+
+session_start();
+
+if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -172,3 +179,12 @@
 </footer>
 
 </html>
+<?php
+
+} else {
+
+    header("location: ../forms/login.php");
+    exit();
+}
+
+?>
