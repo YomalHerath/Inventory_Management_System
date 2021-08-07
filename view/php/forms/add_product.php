@@ -9,9 +9,9 @@
 
                     <div class="col-lg-4 mx-auto">
                         <div class="card mb-3">
-                            <div class="card-header">
+                            <div class="card-header" style="background-color:#e0b0ff;">
                                 <h2 class="card-title d-flex justify-content-center text-uppercase"><b>Add New Product</b></h2>
-                                <div class="card-body" style="background-color:#e0b0ff;">
+                                <div class="card-body">
                                 </div>
                                 <form class="m-1" action="" method="POST" enctype="multipart/form-data">
                                     <div class="form-group p-2">
@@ -31,7 +31,7 @@
                                     <div class="form-group p-2">
                                         <label for="exampleFormControlSelect1">Category</label>
                                         <select class="form-control" id="category" name="category" required>
-                                            <option></option>
+                                            <option>Select</option>
                                             <option>Recurve</option>
                                             <option>Compound</option>
                                             <option>Hunting</option>
