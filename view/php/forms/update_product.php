@@ -50,7 +50,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
                                             <input type="text" class="form-control" id="availability" name="availability" required>
                                         </div>
                                         <br>
-                                        <button type="submit" name="submit" class="btn btn btn-success m-1">Update</button>
+                                        <button type="submit" name="submit" class="btn btn btn-success m-1">Save</button>
                                         <button type="button" class="btn btn btn-danger m-1" onclick="history.back();">Cancel</button>
                                     </form>
                                 </div>
