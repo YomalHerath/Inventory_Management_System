@@ -40,9 +40,9 @@ if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
                                             <label for="exampleFormControlSelect1">Category</label>
                                             <select class="form-control" id="category" name="category" required>
                                                 <option>Select</option>
-                                                <option>Recurve</option>
-                                                <option>Compound</option>
-                                                <option>Hunting</option>
+                                                <option value="Recurve">Recurve</option>
+                                                <option value="Compound">Compound</option>
+                                                <option value="Hunting">Hunting</option>
                                             </select>
                                         </div>
                                         <div class="form-group p-2">
@@ -56,9 +56,9 @@ if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
                                         <div class="form-group p-2">
                                             <label for="exampleFormControlSelect1">Availability</label>
                                             <select class="form-control" id="availability" name="availability" required>
-                                                <option></option>
-                                                <option>Available</option>
-                                                <option>Unavailable</option>
+                                                <option>Select</option>
+                                                <option value="Available">Available</option>
+                                                <option value="Unavailable">Unavailable</option>
                                             </select>
                                         </div>
                                         <br>
