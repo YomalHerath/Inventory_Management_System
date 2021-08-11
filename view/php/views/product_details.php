@@ -69,7 +69,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
                                                 </td>
                                                 <td>
                                                     <?php
-                                                    echo "<a class='btn btn-warning btn-sm' href=\"../forms/update_product.php\"><i class='fa fa-pencil' aria-hidden='true'><span class='p-2'>Update</span></i></a>";
+                                                    echo "<a class='btn btn-warning btn-sm' href=\"../forms/update_product.php?product_id=$row[product_id]\"><i class='fa fa-pencil' aria-hidden='true'><span class='p-2'>Update</span></i></a>";
                                                     ?>
                                                     <?php
                                                     echo "<a class='btn btn-primary btn-sm' href=\"../forms/create_invoice.php\"><i class='fa fa-pencil-square-o' aria-hidden='true'><span class='p-2'>Add to Invoice</span></i></a>";
@@ -114,7 +114,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
                                                 </td>
                                                 <td>
                                                     <?php
-                                                    echo "<a class='btn btn-warning btn-sm' href=\"../forms/update_product.php\"><i class='fa fa-pencil' aria-hidden='true'><span class='p-2'>Update</span></i></a>";
+                                                    echo "<a class='btn btn-warning btn-sm' href=\"../forms/update_product.php?product_id=$row[product_id]\"><i class='fa fa-pencil' aria-hidden='true'><span class='p-2'>Update</span></i></a>";
                                                     ?>
                                                 </td>
                                             </tbody>
