@@ -4,8 +4,9 @@ session_start();
 
 if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
 
-?>   
-   <?php include('../views/header.php'); ?>
+?>
+
+    <?php include('../views/header.php'); ?>
 
     <body>
 
@@ -56,26 +57,40 @@ if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
                                                 </tr>
                                             </thead>
 
-                                            <tbody class="table-light text-center">
-                                                <td>1</td>
-                                                <td>Hoyt Archery</td>
-                                                <td>Hoyt</td>
-                                                <td>Riser</td>
-                                                <td>Recurve</td>
-                                                <td>5</td>
-                                                <td>Rs145000.00</td>
-                                                <td>
-                                                    <p class="p-1 mb-1 bg-success text-light">Available</p>
-                                                </td>
-                                                <td>
-                                                    <?php
-                                                    echo "<a class='btn btn-warning btn-sm' href=\"../forms/update_product.php?product_id=$row[product_id]\"><i class='fa fa-pencil' aria-hidden='true'><span class='p-2'>Update</span></i></a>";
-                                                    ?>
-                                                    <?php
-                                                    echo "<a class='btn btn-primary btn-sm' href=\"../forms/create_invoice.php\"><i class='fa fa-pencil-square-o' aria-hidden='true'><span class='p-2'>Add to Invoice</span></i></a>";
-                                                    ?>
-                                                </td>
-                                            </tbody>
+                                            <!-- Get details from sql table with connection  -->
+                                            <?php
+                                            require '../config.php';
+
+                                            $query = " SELECT * FROM products WHERE availability = 'Available'";
+                                            $sql = mysqli_query($con, $query) or die('error getting');
+
+                                            while ($row = mysqli_fetch_array($sql)) {
+                                            ?>
+
+                                                <tbody class="table-light text-center">
+                                                    <td><?php echo $row['product_id']; ?></td>
+                                                    <td><?php echo $row['company_name']; ?></td>
+                                                    <td><?php echo $row['product_brand']; ?></td>
+                                                    <td><?php echo $row['product_name']; ?></td>
+                                                    <td><?php echo $row['category']; ?></td>
+                                                    <td><?php echo $row['qty']; ?></td>
+                                                    <td><?php echo $row['price']; ?></td>
+                                                    <td>
+                                                        <p class="p-1 mb-1 bg-success text-light"><?php echo $row['availability']; ?></p>
+                                                    </td>
+                                                    <td>
+                                                        <?php
+                                                        echo "<a class='btn btn-warning btn-sm' href=\"../forms/update_product.php?product_id=$row[product_id]\"><i class='fa fa-pencil' aria-hidden='true'><span class='p-2'>Update</span></i></a>";
+                                                        ?>
+                                                        <?php
+                                                        echo "<a class='btn btn-primary btn-sm' href=\"../forms/create_invoice.php?product_id=$row[product_id]\"><i class='fa fa-pencil-square-o' aria-hidden='true'><span class='p-2'>Add to Invoice</span></i></a>";
+                                                        ?>
+                                                    </td>
+                                                </tbody>
+
+                                            <?php
+                                            }
+                                            ?>
 
                                         </table>
                                     </div>
@@ -101,23 +116,38 @@ if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
                                                 </tr>
                                             </thead>
 
-                                            <tbody class="table-light text-center">
-                                                <td>1</td>
-                                                <td>Hoyt Archery</td>
-                                                <td>Hoyt</td>
-                                                <td>Limbs</td>
-                                                <td>Recurve</td>
-                                                <td>0</td>
-                                                <td>Rs113000.00</td>
-                                                <td>
-                                                    <p class="p-1 mb-1 bg-danger text-light">Unavailable</p>
-                                                </td>
-                                                <td>
-                                                    <?php
-                                                    echo "<a class='btn btn-warning btn-sm' href=\"../forms/update_product.php?product_id=$row[product_id]\"><i class='fa fa-pencil' aria-hidden='true'><span class='p-2'>Update</span></i></a>";
-                                                    ?>
-                                                </td>
-                                            </tbody>
+                                            <!-- Get details from sql table with connection  -->
+                                            <?php
+                                            require '../config.php';
+
+                                            $query = " SELECT * FROM products WHERE availability = 'Unavailable'";
+                                            $sql = mysqli_query($con, $query) or die('error getting');
+
+                                            while ($row = mysqli_fetch_array($sql)) {
+                                            ?>
+
+                                                <tbody class="table-light text-center">
+                                                    <td><?php echo $row['product_id']; ?></td>
+                                                    <td><?php echo $row['company_name']; ?></td>
+                                                    <td><?php echo $row['product_brand']; ?></td>
+                                                    <td><?php echo $row['product_name']; ?></td>
+                                                    <td><?php echo $row['category']; ?></td>
+                                                    <td><?php echo $row['qty']; ?></td>
+                                                    <td><?php echo $row['price']; ?></td>
+                                                    <td>
+                                                        <p class="p-1 mb-1 bg-danger text-light"><?php echo $row['availability']; ?></p>
+                                                    </td>
+                                                    <td>
+
+                                                        <?php
+                                                        echo "<a class='btn btn-warning btn-sm' href=\"../forms/update_product.php?product_id=$row[product_id]\"><i class='fa fa-pencil' aria-hidden='true'><span class='p-2'>Update</span></i></a>";
+                                                        ?>
+                                                    </td>
+                                                </tbody>
+
+                                            <?php
+                                            }
+                                            ?>
 
                                         </table>
                                     </div>
@@ -135,7 +165,8 @@ if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
 
     </body>
     <?php include('../views/footer.php'); ?>
-    <?php
+
+<?php
 
 } else {
 
