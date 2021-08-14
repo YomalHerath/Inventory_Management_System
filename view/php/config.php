@@ -1,5 +1,5 @@
 <?php
-$servername = "localhost:3325";
+$servername = "localhost:3306";
 $username = "root";
 $password = "";
 $dbname = "inventory_management_system";
