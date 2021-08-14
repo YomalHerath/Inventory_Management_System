@@ -47,7 +47,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
                                         </div>
                                         <div class="form-group p-2">
                                             <label for="exampleFormControlInput1">Quantity</label>
-                                            <input type="text" class="form-control" id="qty" name="qty" required>
+                                            <input type="text" class="form-control" id="qty" name="qty" pattern="/^[0-9]+$/" required>
                                         </div>
                                         <div class="form-group p-2">
                                             <label for="exampleFormControlInput1">Unit Price</label>
