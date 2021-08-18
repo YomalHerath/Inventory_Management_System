@@ -53,7 +53,8 @@ if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
                                                     <th>Qty</th>
                                                     <th>Price</th>
                                                     <th>Availability</th>
-                                                    <th>Action</th>
+                                                    <th>Invoice Qty</th>
+                                                    <th colspan="2">Action</th>
                                                 </tr>
                                             </thead>
 
@@ -78,14 +79,21 @@ if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
                                                     <td>
                                                         <p class="p-1 mb-1 bg-success text-light"><?php echo $row['availability']; ?></p>
                                                     </td>
-                                                    <td>
-                                                        <?php
-                                                        echo "<a class='btn btn-warning btn-sm' href=\"../forms/update_product.php?product_id=$row[product_id]\"><i class='fa fa-pencil' aria-hidden='true'><span class='p-2'>Update</span></i></a>";
-                                                        ?>
-                                                        <?php
-                                                        echo "<a class='btn btn-primary btn-sm' href=\"../forms/create_invoice.php?product_id=$row[product_id]\"><i class='fa fa-pencil-square-o' aria-hidden='true'><span class='p-2'>Add to Invoice</span></i></a>";
-                                                        ?>
-                                                    </td>
+
+                                                    <form method="POST" action="../forms/create_invoice.php?action=add&product_id=<?php echo $row["product_id"]; ?>">
+
+                                                        <td>
+                                                            <input type="number" name="quantity" id="quantity" min="1" max="50" value="1" class="form-control form-control-sm" />
+                                                        </td>
+                                                        <td>
+                                                            <button class='btn btn-primary btn-sm' name="add_to_cart"><i class='fa fa-pencil-square-o' aria-hidden='true'><span class='p-2'>Add to Invoice</span></i></button>
+                                                        </td>
+                                                        <td>
+                                                            <?php
+                                                            echo "<a class='btn btn-warning btn-sm' href=\"../forms/update_product.php?product_id=$row[product_id]\"><i class='fa fa-pencil' aria-hidden='true'><span class='p-2'>Update</span></i></a>";
+                                                            ?>
+                                                        </td>
+                                                    </form>
                                                 </tbody>
 
                                             <?php
