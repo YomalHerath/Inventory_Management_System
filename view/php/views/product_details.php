@@ -75,7 +75,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
                                                     <td><?php echo $row['product_name']; ?></td>
                                                     <td><?php echo $row['category']; ?></td>
                                                     <td><?php echo $row['qty']; ?></td>
-                                                    <td><?php echo $row['price']; ?></td>
+                                                    <td><?php echo number_format($row['price'], 2); ?></td>
                                                     <td>
                                                         <p class="p-1 mb-1 bg-success text-light"><?php echo $row['availability']; ?></p>
                                                     </td>
@@ -86,7 +86,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
                                                             <input type="number" name="quantity" id="quantity" min="1" max="50" value="1" class="form-control form-control-sm" />
                                                         </td>
                                                         <td>
-                                                            <button class='btn btn-primary btn-sm' name="add_to_cart"><i class='fa fa-pencil-square-o' aria-hidden='true'><span class='p-2'>Add to Invoice</span></i></button>
+                                                            <button class='btn btn-primary btn-sm' name="add_to_invoice"><i class='fa fa-pencil-square-o' aria-hidden='true'><span class='p-2'>Add to Invoice</span></i></button>
                                                         </td>
                                                         <td>
                                                             <?php
@@ -141,7 +141,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
                                                     <td><?php echo $row['product_name']; ?></td>
                                                     <td><?php echo $row['category']; ?></td>
                                                     <td><?php echo $row['qty']; ?></td>
-                                                    <td><?php echo $row['price']; ?></td>
+                                                    <td><?php echo number_format($row['price'], 2); ?></td>
                                                     <td>
                                                         <p class="p-1 mb-1 bg-danger text-light"><?php echo $row['availability']; ?></p>
                                                     </td>
