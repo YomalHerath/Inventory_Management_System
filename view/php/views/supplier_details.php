@@ -50,21 +50,35 @@ if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
-                                            <tbody class="table-light text-center">
-                                                <td>1221</td>
-                                                <td>Hoyt Archery</td>
-                                                <td>593 North Wright Brothers Drive Salt Lake City, UT 84116</td>
-                                                <td>csteam@hoyt.com</td>
-                                                <td>8013632990</td>
-                                                <td>
-                                                    <?php
-                                                    echo "<a class='btn btn-primary btn-sm' href=\"../views/view_supplier_details.php\"><i class='fa fa-eye' aria-hidden='true'><span class='p-2'>View</span></i></a>";
-                                                    ?>
-                                                    <?php
-                                                    echo "<a class='btn btn-warning btn-sm' href=\"../forms/update_supplier.php\"><i class='fa fa-pencil' aria-hidden='true'><span class='p-2'>Update</span></i></a>";
-                                                    ?>
-                                                </td>
-                                            </tbody>
+
+                                            <!-- Get details from sql table with connection  -->
+                                            <?php
+                                            require '../config.php';
+
+                                            $query = " SELECT * FROM suppliers";
+                                            $sql = mysqli_query($con, $query) or die('error getting');
+
+                                            while ($row = mysqli_fetch_array($sql)) {
+                                            ?>
+
+                                                <tbody class="table-light text-center">
+                                                    <td><?php echo $row['supplier_id']; ?></td>
+                                                    <td><?php echo $row['company_name']; ?></td>
+                                                    <td><?php echo $row['company_address']; ?></td>
+                                                    <td><?php echo $row['email']; ?></td>
+                                                    <td><?php echo $row['contact_no']; ?></td>
+                                                    <td>
+                                                        <?php
+                                                        echo "<a class='btn btn-primary btn-sm' href=\"../views/view_supplier_details.php?supplier_id=$row[supplier_id]\"><i class='fa fa-eye' aria-hidden='true'><span class='p-2'>View</span></i></a>";
+                                                        ?>
+                                                        <?php
+                                                        echo "<a class='btn btn-warning btn-sm' href=\"../forms/update_supplier.php?supplier_id=$row[supplier_id]\"><i class='fa fa-pencil' aria-hidden='true'><span class='p-2'>Update</span></i></a>";
+                                                        ?>
+                                                    </td>
+                                                </tbody>
+                                            <?php
+                                            }
+                                            ?>
                                         </table>
                                     </div>
                                 </div>
