@@ -9,7 +9,6 @@ if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
     <?php include('../views/header.php'); ?>
 
     <body>
-
         <div class="main-panel">
             <div class="content-wrapper">
                 <div class="col-lg grid-margin stretch-card mx-auto">
@@ -46,22 +45,37 @@ if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
                                                     <th>Date</th>
                                                     <th>Company Name</th>
                                                     <th>Company Address</th>
+                                                    <th>Company Tel No</th>
                                                     <th>Quotation Value</th>
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
+
+                                            <!-- Get Tender Details from sql table with connection  -->
+                                            <?php
+                                            // get db connection from congfig file
+                                            require '../config.php';
+
+                                            $query = "SELECT * FROM tender";
+                                            $sql = mysqli_query($con, $query) or die('error getting');
+                                            while ($row = mysqli_fetch_array($sql)) {
+                                            ?>
+
                                                 <tbody class="table-light text-center">
-                                                    <td>122922</td>
-                                                    <td>15-7-2021</td>
-                                                    <td>Navy Walisara</td>
-                                                    <td>Walisara</td>
-                                                    <td>Rs 456500.00</td>
-                                                    <td>
-                                                        <?php
-                                                        echo "<a class='btn btn-primary btn-sm' href=\"../views/view_quotation_details.php\"><i class='fa fa-eye' aria-hidden='true'><span class='p-2'>View</span></i></a>";
-                                                        ?>
-                                                    </td>
+                                                    <tr>
+                                                        <td><?php echo $row['quotation_no']; ?></td>
+                                                        <td><?php echo $row['date']; ?></td>
+                                                        <td><?php echo $row['company_name']; ?></td>
+                                                        <td><?php echo $row['company_address']; ?></td>
+                                                        <td><?php echo $row['company_tel_no']; ?></td>
+                                                        <td><?php echo $row['quotation_value']; ?></td>
+                                                        <td><button class="btn-sm btn-primary"><i class="fa fa-eye" aria-hidden="true"><span class="p-2">view</span></i></button></td>
+                                                    </tr>
                                                 </tbody>
+
+                                            <?php
+                                            }
+                                            ?>
                                         </table>
                                     </div>
                                 </div>
