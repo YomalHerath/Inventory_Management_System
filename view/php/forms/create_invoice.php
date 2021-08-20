@@ -14,7 +14,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
     require '../config.php';
 
     //getting title from url
-    if ((isset($_POST["add_to_cart"])) && (isset($_GET["product_id"]))) {
+    if ((isset($_POST["add_to_invoice"])) && (isset($_GET["product_id"]))) {
 
         $product_id = $_GET['product_id'];
 
@@ -77,7 +77,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
                 <div class="col-lg grid-margin stretch-card mx-auto">
                     <div class="m-3">
 
-                        <div class="col-lg-6 mx-auto">
+                        <div class="col-lg-8 mx-auto">
                             <div class="card mb-3" style="background-color:#e0b0ff;">
                                 <div class="card-header">
                                     <h2 class="card-title d-flex justify-content-center text-uppercase"><b>Create New
@@ -119,7 +119,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
                                                                 <th>Product Name</th>
                                                                 <th>Qty</th>
                                                                 <th>Unit Price</th>
-                                                                <th style="padding:10px" width="5%">Action</th>
+                                                                <th>Action</th>
                                                             </tr>
                                                         </thead>
                                                         <?php
@@ -127,22 +127,25 @@ if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
                                                             $total = 0;
                                                             foreach ($_SESSION["shopping_cart"] as $keys => $values) {
                                                         ?>
-                                                                <tbody class="table-light" id="table_body">
+                                                                <tbody class="table-light text-center" id="table_body">
                                                                     <tr>
-                                                                        <td><?php echo $values["item_brand"]; ?></td>
-                                                                        <td><?php echo $values["item_name"]; ?></td>
-                                                                        <td><?php echo $values["item_quantity"]; ?></label></td>
-                                                                        <td><?php echo $values["item_price"]; ?></label></td>
-                                                                        <td><a class="btn btn-sm btn-danger" href="create_invoice.php?action=delete&product_id=<?php echo $values["item_id"]; ?>"><span class="DeleteButton">Remove</span></a></td>
+                                                                        <td><input type="text" name="brand[]" id="brand[]" value="<?php echo $values["item_brand"]; ?>" disabled></td>
+                                                                        <td><input type="text" name="name[]" id="name[]" value="<?php echo $values["item_name"]; ?>" disabled></td>
+                                                                        <td><input type="text" name="qty[]" id="qty[]" value="<?php echo $values["item_quantity"]; ?>" disabled></input></td>
+                                                                        <td><input type="text" name="price[]" id="price[]" value="<?php echo number_format($values["item_price"], 2); ?>" disabled></input></td>
+                                                                        <td><a class="btn btn-sm btn-danger" href="create_invoice.php?action=delete&product_id=<?php echo $values["item_id"]; ?>"><span class="DeleteButton"><i class="fa fa-trash" aria-hidden="true"></i></span></a></td>
                                                                         </td>
                                                                     </tr>
+                                                                    <?php
+                                                                    $total_price = $total + ($values["item_quantity"] * $values["item_price"]);
+                                                                    ?>
+                                                                    <input type="hidden" name="total_price" id="total_price" value="<?php $total_price ?>">
                                                                 <?php
-                                                                $total = $total + ($values["item_quantity"] * $values["item_price"]);
                                                             }
                                                                 ?>
                                                                 <tr>
                                                                     <td style="font-weight:bold" colspan="3" align="right">Total</td>
-                                                                    <td align="right" style="font-weight:bold" colspan="2">Rs <?php echo number_format($total, 2); ?></td>
+                                                                    <td align="right" style="font-weight:bold" colspan="2"><?php echo number_format($total_price, 2); ?></td>
                                                                 </tr>
                                                                 </tbody>
 
