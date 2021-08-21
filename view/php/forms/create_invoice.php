@@ -77,7 +77,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
                 <div class="col-lg grid-margin stretch-card mx-auto">
                     <div class="m-3">
 
-                        <div class="col-lg-8 mx-auto">
+                        <div class="col-lg-6 mx-auto">
                             <div class="card mb-3" style="background-color:#e0b0ff;">
                                 <div class="card-header">
                                     <h2 class="card-title d-flex justify-content-center text-uppercase"><b>Create New
@@ -119,6 +119,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
                                                                 <th>Product Name</th>
                                                                 <th>Qty</th>
                                                                 <th>Unit Price</th>
+                                                                <th>Amount</th>
                                                                 <th>Action</th>
                                                             </tr>
                                                         </thead>
@@ -129,23 +130,35 @@ if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
                                                         ?>
                                                                 <tbody class="table-light text-center" id="table_body">
                                                                     <tr>
-                                                                        <td><input type="text" name="brand[]" id="brand[]" value="<?php echo $values["item_brand"]; ?>" disabled></td>
-                                                                        <td><input type="text" name="name[]" id="name[]" value="<?php echo $values["item_name"]; ?>" disabled></td>
-                                                                        <td><input type="text" name="qty[]" id="qty[]" value="<?php echo $values["item_quantity"]; ?>" disabled></input></td>
-                                                                        <td><input type="text" name="price[]" id="price[]" value="<?php echo number_format($values["item_price"], 2); ?>" disabled></input></td>
+                                                                        <td>
+                                                                            <p><?php echo $values["item_brand"]; ?></p>
+                                                                        </td>
+                                                                        <td>
+                                                                            <p><?php echo $values["item_name"]; ?></p>
+                                                                        </td>
+                                                                        <td>
+                                                                            <p><?php echo $values["item_quantity"]; ?></p>
+                                                                        </td>
+                                                                        <td>
+                                                                            <p><?php echo number_format($values["item_price"], 2); ?></p>
+                                                                        </td>
+                                                                        <td>
+                                                                            <p><?php echo number_format(($values["item_quantity"] * $values["item_price"]), 2); ?></p>
+                                                                        </td>
                                                                         <td><a class="btn btn-sm btn-danger" href="create_invoice.php?action=delete&product_id=<?php echo $values["item_id"]; ?>"><span class="DeleteButton"><i class="fa fa-trash" aria-hidden="true"></i></span></a></td>
                                                                         </td>
                                                                     </tr>
                                                                     <?php
-                                                                    $total_price = $total + ($values["item_quantity"] * $values["item_price"]);
+                                                                    $total = $total + ($values["item_quantity"] * $values["item_price"]);
                                                                     ?>
-                                                                    <input type="hidden" name="total_price" id="total_price" value="<?php $total_price ?>">
                                                                 <?php
                                                             }
                                                                 ?>
+                                                                <input type="hidden" name="total_price" id="total_price" value="<?php echo $total ?>">
+
                                                                 <tr>
-                                                                    <td style="font-weight:bold" colspan="3" align="right">Total</td>
-                                                                    <td align="right" style="font-weight:bold" colspan="2"><?php echo number_format($total_price, 2); ?></td>
+                                                                    <td style="font-weight:bold" colspan="4" align="right">Total</td>
+                                                                    <td align="right" style="font-weight:bold" colspan="2"><?php echo number_format($total, 2); ?></td>
                                                                 </tr>
                                                                 </tbody>
 
@@ -157,8 +170,9 @@ if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
                                                 </div>
                                             </div>
                                         </div>
+                                        <a class="btn btn btn-primary m-1" href="../views/product_details.php">Add more products</a>
                                         <button type="submit" name="submit" class="btn btn btn-success m-1">Submit</button>
-                                        <button type="button" class="btn btn btn-danger m-1" onclick="history.back();">Cancel</button>
+                                        <button type="button" class="btn btn btn-danger m-1" onclick="history.back()">Cancel</button>
 
                                     </form>
                                 </div>
