@@ -31,7 +31,7 @@
                                 <div class="card-body">
                                     <form name="login" method="POST" action="../form_controllers/login_control.php" onsubmit="return validation()" enctype="multipart/form-data">
                                         <div class="form-group">
-                                            <img class="mb-4" src="../../../images/logo.jpg" alt="" height="180">
+                                            <img class="mb-4" src="../../../images/logo.jpg" alt="" height="160">
                                         </div>
                                         <div class="form-group p-2">
                                             <h3 class="font-weight-normal">Please Sign In</h3>
