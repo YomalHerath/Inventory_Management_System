@@ -41,7 +41,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
                     <div class="m-3">
 
                         <div class="col-lg-4 mx-auto">
-                            <div class="card mb-3">
+                            <div class="card mb-3" style="background-color:#e0b0ff;">
                                 <div class="card-header">
                                     <h2 class="card-title d-flex justify-content-center text-uppercase"><b>Update Supplier Details</b></h2>
                                     <div class="card-body">
