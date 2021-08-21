@@ -22,7 +22,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
                                     <div class="card-body">
                                     </div>
 
-                                    <form class="m-1" action="" method="POST" enctype="multipart/form-data">
+                                    <form class="m-1" action="../form_controllers/submit_quotation.php" method="POST" enctype="multipart/form-data">
                                         <div class="form-group p-2">
                                             <label for="exampleFormControlInput1">Quotation No</label>
                                             <input type="text" class="form-control" id="quotation_no" name="quotation_no" required>
