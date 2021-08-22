@@ -4,19 +4,21 @@ require '../config.php';
 
 if (isset($_POST['submit'])) {
 
-    // $product_brand = $_POST['brand'];
-    // $product_name = $_POST['name'];
-    // $product_qty = $_POST['qty'];
-    // $product_price = $_POST['price'];
+    $invoice_no = $_POST['invoice_no'];
+    $product_brand = $_POST['brand'];
+    $product_name = $_POST['name'];
+    $product_qty = $_POST['qty'];
+    $product_price = $_POST['price'];
+    $amount = $_POST['amount'];
 
-    // foreach ($product_name as $keys => $value) {
+    foreach ($product_name as $key => $value) {
 
-    //     $sql_invoice = "INSERT INTO sales_invoices( invoice_no, product_brand, product_name, qty, price)
-    //     VALUES ('$invoice_no','" . $product_brand[$keys] . "','" . $product_name[$keys] . "','" . $product_qty[$keys] . "','" . $product_price[$keys] . "')";
+        $sql_invoice = "INSERT INTO sales_invoices( invoice_no, product_brand, product_name, qty, unit_price, amount)
+        VALUES ('$invoice_no','" . $product_brand[$key] . "','" . $product_name[$key] . "','" . $product_qty[$key] . "','" . $product_price[$key] . "','" . $amount[$key] . "')";
 
-    //     $query = $con->query($sql_invoice);
-    //     echo mysqli_error($con);
-    // }
+        $query = $con->query($sql_invoice);
+        echo mysqli_error($con);
+    }
 
     //get all the submition data from form
     $invoice_no = $_POST['invoice_no'];
