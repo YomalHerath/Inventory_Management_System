@@ -89,7 +89,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
                                                     <form method="POST" action="../forms/create_invoice.php?action=add&product_id=<?php echo $row["product_id"]; ?>">
 
                                                         <td>
-                                                            <input type="number" name="quantity" id="quantity" min="1" max="<?php $row['qty']; ?>" value="1" class="form-control form-control-sm" />
+                                                            <input type="number" name="quantity" id="quantity" min="1" max="<?php echo $row['qty']; ?>" value="1" class="form-control form-control-sm" />
                                                         </td>
                                                         <td>
                                                             <button class='btn btn-primary btn-sm' name="add_to_invoice"><i class='fa fa-pencil-square-o' aria-hidden='true'><span class='p-2'>Add to Invoice</span></i></button>
