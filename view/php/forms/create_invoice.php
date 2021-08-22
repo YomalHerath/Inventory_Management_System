@@ -68,6 +68,13 @@ if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
         }
     }
 
+    if (isset($_GET["action"])) {
+        if ($_GET["action"] == "cancel") {
+            unset($_SESSION["shopping_cart"]);
+            echo '<script>window.location="../views/product_details.php"</script>';
+        }
+    }
+
     ?>
 
     <body>
@@ -160,8 +167,10 @@ if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
                                                 </div>
                                             </div>
                                         </div>
+
                                         <button type="submit" name="submit" class="btn btn btn-success m-1">Submit</button>
-                                        <a class="btn btn btn-primary m-1" href="../views/product_details.php">Add more products</a>
+                                        <a class="btn btn btn-danger m-1" href="create_invoice.php?action=cancel">Cancel</a>
+                                        <a class="btn btn btn-primary m-1" href="../views/product_details.php">Add Products</a>
 
                                     </form>
                                 </div>
