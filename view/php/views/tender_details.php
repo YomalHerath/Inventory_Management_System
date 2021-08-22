@@ -69,7 +69,11 @@ if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
                                                         <td><?php echo $row['company_address']; ?></td>
                                                         <td><?php echo $row['company_tel_no']; ?></td>
                                                         <td><?php echo $row['quotation_value']; ?></td>
-                                                        <td><a class="btn-sm btn-primary" href="../views/view_quotation_details.php"><i class="fa fa-eye" aria-hidden="true"><span class="p-2">view</span></i></button></td>
+                                                        <td>
+                                                            <?php
+                                                            echo "<a class='btn btn-primary btn-sm' href=\"../views/view_quotation_details.php?tender_id=$row[tender_id]\"><i class='fa fa-eye' aria-hidden='true'><span class='p-2'>View</span></i></a>";
+                                                            ?>
+                                                        </td>
                                                     </tr>
                                                 </tbody>
 
