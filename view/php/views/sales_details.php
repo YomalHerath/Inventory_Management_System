@@ -19,6 +19,9 @@ if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
                             <div class="m-3">
                                 <h1 class="d-flex justify-content-center text-uppercase"><b>Sales Details</b></h1>
                                 <div class="card-body">
+                                    <!-- add sales button -->
+                                    <a class="btn btn-primary col-lg-2 ml-2" href="../forms/create_invoice.php"><i class="fa fa-tasks" aria-hidden="true"><span class="p-3">Create New Invoice</span></i></a>
+                                    <br>
                                     <form method="POST">
                                         <div class="row no-gutters align-items-center mt-2 pt-2">
                                             <!--end of col-->
