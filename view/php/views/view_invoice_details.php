@@ -16,13 +16,13 @@ if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
 
                     <div class="col-lg-6 mx-auto">
                         <!-- Create Invoice view -->
-                        <div class="my-2" id="printableArea">
+                        <div class="my-2">
                             <div class="card">
                                 <div class="card-body" style="margin:20px;">
 
                                     <img src="../../../images/invoice.jpg" class="mx-auto img-fluid" alt="Invoice Header Image">
 
-                                    <div class="row">
+                                    <div class="row print_container">
 
                                         <hr>
                                         <h3 class="text-uppercase text-center"><b>Invoice</b></h3>
@@ -124,28 +124,46 @@ if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
                                 </div>
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-primary font-weight-bold" onClick="printPageArea('printableArea')">Print</button>&nbsp;
+                        <button type="submit" class="btn btn-primary font-weight-bold" id="print_invoice">Print</button>&nbsp;
                         <button type="submit" class="btn btn-danger font-weight-bold" onclick="history.back()">Back</button>
                     </div>
                 </div>
 
-
-                <!-- make print view with button click -->
-                <script>
-                    function printPageArea(areaID) {
-                        var printContents = document.getElementById(areaID).innerHTML;
-                        var originalContents = document.body.innerHTML;
-                        document.body.innerHTML = printContents;
-                        window.print();
-                        document.body.innerHTML = originalContents;
-                    }
-                </script>
-
-
             </div>
         </div>
     </div>
-    </div>
+
+            <script src="../../js/jquery.min.js"></script>
+            <script src="../../js/printThis.js"></script>
+            <script>
+                $('#print_invoice').click(function() {
+                    $('.print_container').printThis({
+                        debug: false, // show the iframe for debugging
+                        importCSS: true, // import parent page css
+                        importStyle: true, // import style tags
+                        printContainer: true, // print outer container/$.selector
+                        loadCSS: "../../css/index.css", // path to additional css file - use an array [] for multiple
+                        pageTitle: "Sales Invoice", // add title to print page
+                        removeInline: false, // remove inline styles from print elements
+                        removeInlineSelector: "*", // custom selectors to filter inline styles. removeInline must be true
+                        printDelay: 333, // variable print delay
+                        header:"<h1 align='center'>Wayamba Archery Suppliers</h1>", // prefix to html
+                        footer: false, // postfix to html
+                        base: false, // preserve the BASE tag or accept a string for the URL
+                        formValues: true, // preserve input/form values
+                        canvas: false, // copy canvas content
+                        doctypeString:'<!DOCTYPE html>', // enter a different doctype for older markup
+                        removeScripts: false, // remove script tags from print content
+                        copyTagClasses: false, // copy classes from the html & body tag
+                        beforePrintEvent: null, // callback function for printEvent in iframe
+                        beforePrint: null, // function called before iframe is filled
+                        afterPrint: null // function called before iframe is removed
+
+                    });
+                })
+            </script>
+    
+
 
 </body>
 <?php include('../views/footer.php'); ?>
