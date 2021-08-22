@@ -19,7 +19,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
                             <div class="m-3">
                                 <h1 class="d-flex justify-content-center text-uppercase"><b>Sales Details</b></h1>
                                 <div class="card-body">
-                                    <form>
+                                    <form method="POST">
                                         <div class="row no-gutters align-items-center mt-2 pt-2">
                                             <!--end of col-->
                                             <div class="col-lg-3">
@@ -53,6 +53,12 @@ if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
                                             require '../config.php';
 
                                             $query = " SELECT * FROM sales";
+                                            if (isset($_POST['search'])) {
+
+                                                $search =  $_POST['search'];
+                                                $query = "SELECT * FROM sales WHERE invoice_no LIKE '%$search%' OR date LIKE '%$search%' OR customer_name LIKE '%$search%' OR customer_address LIKE '%$search%' ";
+                                            }
+
                                             $sql = mysqli_query($con, $query) or die('error getting');
 
                                             while ($row = mysqli_fetch_array($sql)) {

@@ -22,7 +22,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
                                     <!-- Add Product Button -->
                                     <a class="btn btn-primary col-lg-2 ml-2" href="../forms/add_product.php"><i class="fa fa-folder-open" aria-hidden="true"><span class="p-3">Add New Product</span></i></a>
                                     <br>
-                                    <form>
+                                    <form method="POST">
                                         <div class="row no-gutters align-items-center mt-2 pt-2">
                                             <!--end of col-->
                                             <div class="col-lg-3">
@@ -63,6 +63,12 @@ if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
                                             require '../config.php';
 
                                             $query = " SELECT * FROM products WHERE availability = 'Available'";
+                                            if (isset($_POST['search'])) {
+
+                                                $search =  $_POST['search'];
+                                                $query = "SELECT * FROM products WHERE availability = 'Available' AND (product_brand LIKE '%$search%' OR category LIKE '%$search%' OR product_name LIKE '%$search%' OR company_name LIKE '%$search%')";
+                                            }
+
                                             $sql = mysqli_query($con, $query) or die('error getting');
 
                                             while ($row = mysqli_fetch_array($sql)) {
@@ -129,6 +135,12 @@ if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
                                             require '../config.php';
 
                                             $query = " SELECT * FROM products WHERE availability = 'Unavailable'";
+                                            if (isset($_POST['search'])) {
+
+                                                $search =  $_POST['search'];
+                                                $query = "SELECT * FROM products WHERE availability = 'Unavailable' AND (product_brand LIKE '%$search%' OR category LIKE '%$search%' OR product_name LIKE '%$search%' OR company_name LIKE '%$search%')";
+                                            }
+
                                             $sql = mysqli_query($con, $query) or die('error getting');
 
                                             while ($row = mysqli_fetch_array($sql)) {
