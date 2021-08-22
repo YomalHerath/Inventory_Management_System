@@ -26,6 +26,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
             $product_name = $row['product_name'];
             $product_brand = $row['product_brand'];
             $price = $row['price'];
+            $product_all_qty = $row['qty'];
         }
 
         if (isset($_SESSION["shopping_cart"])) {
@@ -38,6 +39,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
                     'item_name'         =>    $product_name,
                     'item_brand'        =>    $product_brand,
                     'item_price'        =>    $price,
+                    'all_qty'           =>    $product_all_qty,
                     'item_quantity'     =>    $_POST["quantity"]
                 );
                 $_SESSION["shopping_cart"][$count] = $item_array;
@@ -50,6 +52,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
                 'item_name'         =>    $product_name,
                 'item_brand'        =>    $product_brand,
                 'item_price'        =>    $price,
+                'all_qty'           =>    $product_all_qty,
                 'item_quantity'     =>    $_POST["quantity"]
             );
             $_SESSION["shopping_cart"][0] = $item_array;
@@ -137,6 +140,8 @@ if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
                                                         ?>
                                                                 <tbody class="table-light text-center" id="table_body">
                                                                     <tr>
+                                                                        <input type="hidden" name="id[]" value=" <?php echo $values["item_id"]; ?>">
+                                                                        <input type="hidden" name="product_all_qty[]" value=" <?php echo $values["all_qty"]; ?>">
                                                                         <td><input type="text" name="brand[]" value=" <?php echo $values["item_brand"]; ?>"></td>
                                                                         <td><input type="text" name="name[]" value=" <?php echo $values["item_name"]; ?>"></td>
                                                                         <td><input type="text" name="qty[]" value=" <?php echo $values["item_quantity"]; ?>"></td>
@@ -151,7 +156,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
                                                                 <?php
                                                             }
                                                                 ?>
-                                                                <input type="hidden" name="total_price" id="total_price" value="<?php echo $total ?>">
+                                                                <input type="hidden" name="total_price" id="total_price" value="<?php echo number_format($total, 2); ?>">
 
                                                                 <tr>
                                                                     <td style="font-weight:bold" colspan="4" align="right">Total</td>
