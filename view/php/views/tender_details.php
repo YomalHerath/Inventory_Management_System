@@ -21,7 +21,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
                                     <!-- add tender button -->
                                     <a class="btn btn-primary col-lg-2 ml-2" href="../forms/create_quotation.php"><i class="fa fa-tasks" aria-hidden="true"><span class="p-3">Add New Tender</span></i></a>
                                     <br>
-                                    <form>
+                                    <form method="POST">
                                         <div class="row no-gutters align-items-center mt-2 pt-2">
                                             <!--end of col-->
                                             <div class="col-lg-3">
@@ -57,6 +57,13 @@ if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
                                             require '../config.php';
 
                                             $query = "SELECT * FROM tender";
+                                            
+                                            if (isset($_POST['search'])) {
+
+                                                $search =  $_POST['search'];
+                                                $query = "SELECT * FROM tender WHERE quotation_no LIKE '%$search%' OR date LIKE '%$search%' OR company_name LIKE '%$search%' OR company_address LIKE '%$search%' ";
+                                            }
+
                                             $sql = mysqli_query($con, $query) or die('error getting');
                                             while ($row = mysqli_fetch_array($sql)) {
                                             ?>
