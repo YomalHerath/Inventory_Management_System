@@ -5,6 +5,7 @@ require '../config.php';
 if (isset($_POST['submit'])) {
 
     $invoice_no = $_POST['invoice_no'];
+    $product_id = $_POST['product_id'];
     $product_brand = $_POST['brand'];
     $product_name = $_POST['name'];
     $product_qty = $_POST['qty'];
