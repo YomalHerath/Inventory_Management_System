@@ -87,7 +87,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
                 <div class="col-lg grid-margin stretch-card mx-auto">
                     <div class="m-3">
 
-                        <div class="col-lg-10 mx-auto">
+                        <div class="col-lg-6 mx-auto">
                             <div class="card mb-3" style="background-color:#e0b0ff;">
                                 <div class="card-header">
                                     <h2 class="card-title d-flex justify-content-center text-uppercase"><b>Create New
@@ -142,12 +142,20 @@ if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
                                                                     <tr>
                                                                         <input type="hidden" name="id[]" value=" <?php echo $values["item_id"]; ?>">
                                                                         <input type="hidden" name="product_all_qty[]" value=" <?php echo $values["all_qty"]; ?>">
-                                                                        <td><input type="text" name="brand[]" value=" <?php echo $values["item_brand"]; ?>"></td>
-                                                                        <td><input type="text" name="name[]" value=" <?php echo $values["item_name"]; ?>"></td>
-                                                                        <td><input type="text" name="qty[]" value=" <?php echo $values["item_quantity"]; ?>"></td>
-                                                                        <td><input type="text" name="price[]" value=" <?php echo number_format($values["item_price"], 2); ?>"></td>
-                                                                        <td><input type="text" name="amount[]" value=" <?php echo number_format((($values["item_quantity"] * $values["item_price"])), 2); ?>"></td>
-                                                                        <td><a class="btn btn-sm btn-danger" href="create_invoice.php?action=delete&product_id=<?php echo $values["item_id"]; ?>"><span class="DeleteButton"><i class="fa fa-trash" aria-hidden="true"></i></span></a></td>
+                                                                        <input type="hidden" name="brand[]" value=" <?php echo $values["item_brand"]; ?>">
+                                                                        <input type="hidden" name="name[]" value=" <?php echo $values["item_name"]; ?>">
+                                                                        <input type="hidden" name="qty[]" value=" <?php echo $values["item_quantity"]; ?>">
+                                                                        <input type="hidden" name="price[]" value=" <?php echo number_format($values["item_price"], 2); ?>">
+                                                                        <input type="hidden" name="amount[]" value=" <?php echo number_format((($values["item_quantity"] * $values["item_price"])), 2); ?>">
+
+                                                                        <td><?php echo $values["item_brand"]; ?></td>
+                                                                        <td><?php echo $values["item_name"]; ?></td>
+                                                                        <td><?php echo $values["item_quantity"]; ?></td>
+                                                                        <td><?php echo number_format($values["item_price"], 2); ?></td>
+                                                                        <td><?php echo number_format((($values["item_quantity"] * $values["item_price"])), 2); ?></td>
+                                                                        <td>
+                                                                            <a class="btn btn-sm btn-danger" href="create_invoice.php?action=delete&product_id=<?php echo $values["item_id"]; ?>">
+                                                                            <span class="DeleteButton"><i class="fa fa-trash" aria-hidden="true"></i></span></a>
                                                                         </td>
                                                                     </tr>
                                                                     <?php
