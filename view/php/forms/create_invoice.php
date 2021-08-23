@@ -114,7 +114,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
                                         </div>
                                         <div class="form-group p-2">
                                             <label for="exampleFormControlInput1">Customer Tel No</label>
-                                            <input type="text" class="form-control" id="customer_tel" name="customer_tel" required>
+                                            <input type="text" class="form-control" pattern="/^[0-9]+$/" id="customer_tel" name="customer_tel" required>
                                         </div>
                                         <br>
 
@@ -155,7 +155,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
                                                                         <td><?php echo number_format((($values["item_quantity"] * $values["item_price"])), 2); ?></td>
                                                                         <td>
                                                                             <a class="btn btn-sm btn-danger" href="create_invoice.php?action=delete&product_id=<?php echo $values["item_id"]; ?>">
-                                                                            <span class="DeleteButton"><i class="fa fa-trash" aria-hidden="true"></i></span></a>
+                                                                                <span class="DeleteButton"><i class="fa fa-trash" aria-hidden="true"></i></span></a>
                                                                         </td>
                                                                     </tr>
                                                                     <?php

@@ -17,7 +17,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
 
                         <div class="col-lg-6 mx-auto">
                             <div class="card mb-3">
-                                <div class="card-header"style="background-color:#e0b0ff;">
+                                <div class="card-header" style="background-color:#e0b0ff;">
                                     <h2 class="card-title d-flex justify-content-center text-uppercase"><b>Create New Quotation</b></h2>
                                     <div class="card-body">
                                     </div>
@@ -41,7 +41,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
                                         </div>
                                         <div class="form-group p-2">
                                             <label for="exampleFormControlInput1">Customer Tel No</label>
-                                            <input type="text" class="form-control" id="company_tel" name="company_tel" required>
+                                            <input type="text" class="form-control" pattern="/^[0-9]+$/" id="company_tel" name="company_tel" required>
                                         </div>
                                         <br>
 

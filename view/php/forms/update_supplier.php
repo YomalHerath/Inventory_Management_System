@@ -64,7 +64,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
                                         </div>
                                         <div class=" form-group p-2">
                                             <label for="exampleFormControlInput1">Contact No</label>
-                                            <input type="text" class="form-control" id="contact_no" name="contact_no" value="<?php echo $contact_no; ?>" required>
+                                            <input type="text" class="form-control" pattern="/^[0-9]+$/" id="contact_no" name="contact_no" value="<?php echo $contact_no; ?>" required>
                                         </div>
                                         <br>
                                         <button type="submit" name="submit" class="btn btn btn-success m-1">Update</button>
