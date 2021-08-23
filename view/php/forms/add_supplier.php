@@ -32,7 +32,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
                                         </div>
                                         <div class="form-group p-2">
                                             <label for="exampleFormControlInput1">Email</label>
-                                            <input type="text" class="form-control" id="email" name="email" required>
+                                            <input type="email" class="form-control" id="email" name="email" required>
                                         </div>
                                         <div class="form-group p-2">
                                             <label for="exampleFormControlInput1">Contact No</label>

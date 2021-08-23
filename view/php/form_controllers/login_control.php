@@ -27,7 +27,6 @@ if (isset($_POST['submit'])) {
         $row = mysqli_fetch_array($result);
         $username = $row['username'];
         $password = $row['password'];
-        $id = $row['id'];
 
         $decode_password = base64_decode($password);
 
@@ -35,14 +34,14 @@ if (isset($_POST['submit'])) {
 
             $_SESSION['username'] = $username;
             $_SESSION['password'] = $decode_password;
-            $_SESSION['id'] = $id;
 
-            header("location: ../../../index.php ");
+            echo '<script>alert("Login Successful")</script>';
+            echo "<script type='text/javascript'> document.location = '../../../index.php'; </script>";
             exit();
         } else {
 
-            echo 'Incorrect Username or Password';
-            header("location: ../forms/login.php ");
+            echo '<script>alert("Incorrect Username or Password")</script>';
+            echo "<script type='text/javascript'> document.location = '../forms/login.php'; </script>";
             exit();
         }
     }
