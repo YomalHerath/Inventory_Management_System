@@ -154,29 +154,45 @@ if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
                         <div class="content-wrapper">
                             <?php
 
-                            $dataPoints = array(
-                                array("y" => 25, "label" => "January"),
-                                array("y" => 15, "label" => "February"),
-                                array("y" => 25, "label" => "March"),
-                                array("y" => 5, "label" => "April"),
-                                array("y" => 10, "label" => "May"),
-                                array("y" => 3, "label" => "June"),
-                                array("y" => 20, "label" => "July")
-                            );
+                            $dataPoints = array();
+                            //Best practice is to create a separate file for handling connection to database
+                            try {
+                                // Creating a new connection.
+                                $link = new \PDO(
+                                    'mysql:host=localhost:3306; dbname=inventory_management_system; charset=utf8mb4', 
+                                    'root', //'root',
+                                    '', //'',
+                                    array(
+                                        \PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+                                        \PDO::ATTR_PERSISTENT => false
+                                    )
+                                );
+
+                                $handle = $link->prepare('SELECT product_name, qty FROM products');
+                                $handle->execute();
+                                $result = $handle->fetchAll(\PDO::FETCH_OBJ);
+
+                                foreach ($result as $row) {
+                                    array_push($dataPoints, array("label" => $row->product_name, "y" => $row->qty));
+                                }
+                                $link = null;
+                            } catch (\PDOException $ex) {
+                                print($ex->getMessage());
+                            }
 
                             ?>
                             <script>
                                 window.onload = function() {
 
                                     var chart = new CanvasJS.Chart("chartContainer", {
+                                        animationEnabled: true,
+                                        exportEnabled: true,
+                                        theme: "light1",
                                         title: {
-                                            text: "Monthly Sales"
-                                        },
-                                        axisY: {
-                                            title: "Sales Count"
+                                            text: "Stock Details"
                                         },
                                         data: [{
-                                            type: "line",
+                                            type: "column", //change type to bar, line, area, pie, etc  
                                             dataPoints: <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>
                                         }]
                                     });
@@ -186,9 +202,11 @@ if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
                             </script>
                             </head>
 
-                            <body>
+                            <div class="my-3">
                                 <div id="chartContainer" style="height: 370px; width: 100%;"></div>
                                 <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+                            </div>
+
                         </div>
 
                     </div>
