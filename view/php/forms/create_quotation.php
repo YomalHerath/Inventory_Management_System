@@ -41,7 +41,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
                                         </div>
                                         <div class="form-group p-2">
                                             <label for="exampleFormControlInput1">Customer Tel No</label>
-                                            <input type="text" class="form-control" pattern="/^[0-9]+$/" id="company_tel" name="company_tel" required>
+                                            <input type="text" class="form-control" pattern="\d*" id="company_tel" name="company_tel" required>
                                         </div>
                                         <br>
 
@@ -63,7 +63,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
                                                         <tbody class="table-light" id="table_body">
                                                             <tr>
                                                                 <td><input type="text" class="form-control form-control-sm" name="description[]"></td>
-                                                                <td><input type="text" class="form-control form-control-sm" name="qty[]"></td>
+                                                                <td><input type="number" class="form-control form-control-sm" name="qty[]"></td>
                                                                 <td><input type="text" class="form-control form-control-sm" name="unit_price[]"></td>
                                                                 <td><input type="text" class="form-control form-control-sm" name="amount[]"></td>
                                                                 <td><button type="button" class="btn btn-danger btn-sm" value="remove" onclick="removeField(this);" /><b>-</b></button></td>

@@ -114,7 +114,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
                                         </div>
                                         <div class="form-group p-2">
                                             <label for="exampleFormControlInput1">Customer Tel No</label>
-                                            <input type="text" class="form-control" pattern="/^[0-9]+$/" id="customer_tel" name="customer_tel" required>
+                                            <input type="text" class="form-control" pattern="\d*" id="customer_tel" name="customer_tel" required>
                                         </div>
                                         <br>
 
