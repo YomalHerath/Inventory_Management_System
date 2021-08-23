@@ -42,8 +42,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
 
                                             <thead class="table-primary text-center">
                                                 <tr>
-                                                    <th>Supplier ID</th>
-                                                    <th>Company Name</th>
+                                                    <th>Supply Company Name</th>
                                                     <th>Address</th>
                                                     <th>Email</th>
                                                     <th>Contact Number</th>
@@ -70,7 +69,6 @@ if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
                                             ?>
 
                                                 <tbody class="table-light text-center">
-                                                    <td><?php echo $row['supplier_id']; ?></td>
                                                     <td><?php echo $row['company_name']; ?></td>
                                                     <td><?php echo $row['company_address']; ?></td>
                                                     <td><?php echo $row['email']; ?></td>

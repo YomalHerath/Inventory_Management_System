@@ -45,7 +45,6 @@ if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
 
                                             <thead class="table-primary text-center">
                                                 <tr>
-                                                    <th>Product ID</th>
                                                     <th>Company Name</th>
                                                     <th>Product Brand</th>
                                                     <th>Product Name</th>
@@ -75,7 +74,6 @@ if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
                                             ?>
 
                                                 <tbody class="table-light text-center">
-                                                    <td><?php echo $row['product_id']; ?></td>
                                                     <td><?php echo $row['company_name']; ?></td>
                                                     <td><?php echo $row['product_brand']; ?></td>
                                                     <td><?php echo $row['product_name']; ?></td>
@@ -118,7 +116,6 @@ if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
 
                                             <thead class="table-primary text-center">
                                                 <tr>
-                                                    <th>Product ID</th>
                                                     <th>Company Name</th>
                                                     <th>Product Brand</th>
                                                     <th>Product Name</th>
@@ -147,7 +144,6 @@ if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
                                             ?>
 
                                                 <tbody class="table-light text-center">
-                                                    <td><?php echo $row['product_id']; ?></td>
                                                     <td><?php echo $row['company_name']; ?></td>
                                                     <td><?php echo $row['product_brand']; ?></td>
                                                     <td><?php echo $row['product_name']; ?></td>
