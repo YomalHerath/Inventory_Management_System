@@ -26,6 +26,18 @@ if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
                                             <label for="exampleFormControlSelect1">Company Name</label>
                                             <select class="form-control" id="comapny_name" name="company_name" required>
                                                 <option>Select</option>
+
+                                                <!-- Get supplier names for selector  -->
+                                                <?php
+                                                // get db connection from congfig file
+                                                require '../config.php';
+                                                $query = " SELECT supplier_id, company_name FROM suppliers";
+                                                $sql = mysqli_query($con, $query) or die('error getting');
+                                                while ($row = mysqli_fetch_array($sql)) {
+                                                    echo "<option value='" . $row['supplier_id'] . "|" . $row['company_name'] . "'>" . $row['company_name'] . "</option>";
+                                                }
+                                                ?>
+
                                             </select>
                                         </div>
                                         <div class="form-group p-2">
@@ -47,7 +59,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
                                         </div>
                                         <div class="form-group p-2">
                                             <label for="exampleFormControlInput1">Quantity</label>
-                                            <input type="text" class="form-control" id="qty" name="qty" pattern="/^[0-9]+$/" required>
+                                            <input type="number" class="form-control" id="qty" name="qty" required>
                                         </div>
                                         <div class="form-group p-2">
                                             <label for="exampleFormControlInput1">Unit Price</label>
@@ -65,6 +77,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
                                         <button type="submit" name="submit" class="btn btn btn-success m-1">Save</button>
                                         <button type="button" class="btn btn btn-danger m-1" onclick="history.back();">Cancel</button>
                                     </form>
+
                                 </div>
                             </div>
                         </div>
