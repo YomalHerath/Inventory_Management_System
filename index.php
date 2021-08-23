@@ -43,6 +43,9 @@ if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
                 <li class="nav-item">
                     <a class="nav-link text-light" href="view/php/views/tender_details.php"><b class="text-uppercase">Tenders</b></a>
                 </li>
+            <li class="nav-item">
+                <a class="nav-link text-light" href="view/php/forms/change_pw.php"><b class="text-uppercase">Change Password</b></a>
+            </li>
                 <li class="nav-item">
                     <a class="nav-link text-light" href="view/php/forms/logout.php"><b class="text-uppercase">Logout</b></a>
                 </li>

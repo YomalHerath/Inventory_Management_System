@@ -37,6 +37,9 @@
                 <a class="nav-link text-light" href="../views/tender_details.php"><b class="text-uppercase">Tenders</b></a>
             </li>
             <li class="nav-item">
+                <a class="nav-link text-light" href="../forms/change_pw.php"><b class="text-uppercase">Change Password</b></a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link text-light" href="../forms/logout.php"><b class="text-uppercase">Logout</b></a>
             </li>
         </ul>
