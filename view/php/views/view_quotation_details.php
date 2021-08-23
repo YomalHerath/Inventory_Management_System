@@ -144,15 +144,15 @@ if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
                                                         <tr>
                                                             <td><?php echo $row['description']; ?></td>
                                                             <td><?php echo $row['qty']; ?></td>
-                                                            <td><?php echo $row['unit_price']; ?></td>
-                                                            <td><?php echo $row['amount']; ?></td>
+                                                            <td><?php echo number_format($row['unit_price'],2); ?></td>
+                                                            <td><?php echo number_format($row['amount'],2); ?></td>
                                                         </tr>
                                                     <?php
                                                     }
                                                     ?>
                                                     <tr>
                                                         <th class="table-secondary" colspan="3">Total Amount</th>
-                                                        <td><?php echo $quotation_value; ?></td>
+                                                        <td><?php echo number_format($quotation_value,2); ?></td>
                                                     </tr>
                                                 </tbody>
 
