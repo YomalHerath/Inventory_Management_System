@@ -45,7 +45,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
                         <div class="col-lg-4 mx-auto">
                             <div class="card mb-3" style="background-color:#e0b0ff;">
                                 <div class="card-header">
-                                    <h2 class="card-title d-flex justify-content-center text-uppercase"><b>Add New Product</b></h2>
+                                    <h2 class="card-title d-flex justify-content-center text-uppercase"><b>Update Product Details</b></h2>
                                     <div class="card-body">
                                     </div>
                                     <form class="m-1" action="../form_controllers/submit_updated_product.php" method="POST" enctype="multipart/form-data">
