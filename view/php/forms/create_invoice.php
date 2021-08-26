@@ -181,7 +181,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
                                             </div>
                                         </div>
 
-                                        <button type="submit" name="submit" class="btn btn btn-success m-1">Submit</button>
+                                        <button type="submit" name="submit" class="btn btn btn-success m-1">Save</button>
                                         <a class="btn btn btn-danger m-1" href="create_invoice.php?action=cancel">Cancel</a>
                                         <a class="btn btn btn-primary m-1" href="../views/product_details.php">Add Products</a>
 
