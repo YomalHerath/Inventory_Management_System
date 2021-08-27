@@ -74,9 +74,36 @@ if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
                                             </select>
                                         </div>
                                         <br>
-                                        <button type="submit" name="submit" class="btn btn btn-success m-1">Save</button>
+                                        <button type="submit" name="submit" onclick="check_selection()" class="btn btn btn-success m-1">Save</button>
                                         <button type="button" class="btn btn btn-danger m-1" onclick="history.back();">Cancel</button>
                                     </form>
+
+                                    <script>
+                                        function check_selection() {
+
+                                            var company_name = document.getElementById("company_name").value;
+                                            var category = document.getElementById("category").value;
+                                            var availability = document.getElementById("availability").value;
+
+                                            if (company_name == 'Select') {
+                                                alert("Please Select any Company Name");
+                                                document.location = 'add_producct.php';
+                                                return false;
+                                            }
+
+                                            if (category == 'Select') {
+                                                alert("Please Select any product Category");
+                                                document.location = 'add_producct.php';
+                                                return false;
+                                            }
+
+                                            if (availability == 'Select') {
+                                                alert("Please Select Availability of Product");
+                                                document.location = 'add_producct.php';
+                                                return false;
+                                            }
+                                        }
+                                    </script>
 
                                 </div>
                             </div>
