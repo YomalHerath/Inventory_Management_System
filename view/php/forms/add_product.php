@@ -87,20 +87,20 @@ if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
 
                                             if (company_name == 'Select') {
                                                 alert("Please Select any Company Name");
-                                                document.location = 'add_producct.php';
                                                 return false;
+                                                document.location = 'add_producct.php';
                                             }
 
                                             if (category == 'Select') {
                                                 alert("Please Select any product Category");
-                                                document.location = 'add_producct.php';
                                                 return false;
+                                                document.location = 'add_producct.php';
                                             }
 
                                             if (availability == 'Select') {
                                                 alert("Please Select Availability of Product");
-                                                document.location = 'add_producct.php';
                                                 return false;
+                                                document.location = 'add_producct.php';
                                             }
                                         }
                                     </script>
